@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Whole Person Check-In
+permalink: /checkin/
 ---
 {%- assign weeks = site.weeks | sort: "week" -%}
 

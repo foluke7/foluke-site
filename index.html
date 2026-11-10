@@ -1,0 +1,590 @@
+---
+layout: null
+permalink: /
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foluke Arthurton — Social Work · Whole-Person Wellness</title>
+<meta name="description" content="Foluke Arthurton helps people move, breathe, laugh, and heal through movement classes, retreats, honest conversation, and prayer.">
+<link rel="icon" href="data:,">
+<style>
+  :root{
+    --teal:#0F6E56;
+    --teal-deep:#0A4A3A;
+    --teal-ink:#123B31;
+    --gold:#C8922A;
+    --paper:#FFFFFF;
+    --paper-soft:#F6F4EF;
+    --ink:#22302B;
+    --ink-soft:#5A6963;
+    --rule:#DCE2DE;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+  body{
+    font-family: Georgia, 'Times New Roman', serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+  }
+  .sans{font-family:'Segoe UI', Tahoma, Arial, sans-serif;}
+
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- Nav ---------- */
+  header.site{
+    position:sticky;top:0;z-index:20;
+    background:var(--paper);
+    border-bottom:1px solid var(--rule);
+  }
+  .navbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;}
+  .wordmark{font-size:1.05rem;color:var(--teal-ink);letter-spacing:.01em;}
+  .wordmark b{font-weight:700;}
+  nav.main{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:.86rem;}
+  nav.main a{color:var(--ink-soft);}
+  nav.main a:hover{color:var(--teal);text-decoration:none;border-bottom:2px solid var(--gold);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:88px 0 72px;border-bottom:1px solid var(--rule);}
+  .hero .wrap{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center;}
+  .hero-photo{position:relative;}
+  .hero-photo img{
+    display:block;width:100%;height:auto;
+    border-radius:2px;
+  }
+  .hero-photo::after{
+    content:'';position:absolute;top:16px;left:16px;right:-16px;bottom:-16px;
+    border:2px solid var(--gold);border-radius:2px;z-index:-1;
+  }
+  @media (max-width:760px){
+    .hero .wrap{grid-template-columns:1fr;gap:40px;}
+    .hero-photo{max-width:320px;}
+  }
+  .hero .kicker{font-size:1rem;color:var(--gold);font-style:italic;margin-bottom:14px;}
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 3.9rem);
+    line-height:1.08;
+    color:var(--teal-ink);
+    font-weight:700;
+    max-width:15ch;
+  }
+  .hero .line{font-size:1.05rem;color:var(--ink-soft);margin-top:18px;}
+  .hero p.lede{
+    font-size:1.2rem;max-width:34em;margin-top:22px;color:var(--ink);
+  }
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;}
+  .btn{
+    display:inline-block;padding:12px 26px;border-radius:2px;
+    font-family:'Segoe UI', Tahoma, Arial, sans-serif;font-size:.95rem;
+  }
+  .btn.primary{background:var(--teal);color:#fff;}
+  .btn.primary:hover{background:var(--teal-deep);text-decoration:none;}
+  .btn.ghost{border:1.5px solid var(--teal);color:var(--teal);}
+  .btn.ghost:hover{background:var(--paper-soft);text-decoration:none;}
+
+  /* ---------- Sections ---------- */
+  section{padding:72px 0;border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  h2{
+    font-size:1.9rem;color:var(--teal-ink);font-weight:700;margin-bottom:10px;
+  }
+  .h2-rule{width:56px;height:3px;background:var(--gold);margin:0 0 28px;}
+  .section-note{color:var(--ink-soft);max-width:36em;margin-bottom:34px;font-size:1.02rem;}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:start;}
+  .about-grid p{margin-bottom:16px;max-width:38em;}
+  .about-grid p.vocation{
+    font-style:italic;font-size:1.15rem;color:var(--teal-ink);
+    border-left:3px solid var(--gold);padding-left:18px;margin-bottom:24px;
+  }
+  .facts{
+    background:var(--paper-soft);padding:26px 26px 18px;border-top:3px solid var(--teal);
+    font-size:.94rem;
+  }
+  .facts h3{font-size:.95rem;color:var(--teal-ink);margin-bottom:12px;}
+  .facts ul{list-style:none;}
+  .facts li{padding:7px 0;border-bottom:1px solid var(--rule);color:var(--ink-soft);}
+  .facts li:last-child{border-bottom:none;}
+  .facts li span{color:var(--ink);}
+
+  /* Journey timeline */
+  .timeline{list-style:none;position:relative;padding-left:34px;max-width:640px;}
+  .timeline::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--teal);opacity:.35;}
+  .timeline li{position:relative;padding-bottom:30px;}
+  .timeline li:last-child{padding-bottom:0;}
+  .timeline li::before{
+    content:'';position:absolute;left:-32px;top:7px;width:12px;height:12px;border-radius:50%;
+    background:var(--gold);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--teal);
+  }
+  .timeline h3{font-size:1.12rem;color:var(--teal-ink);margin-bottom:4px;}
+  .timeline h3 em{font-style:normal;font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.8rem;color:var(--gold);font-weight:400;white-space:nowrap;}
+  .timeline p{color:var(--ink-soft);font-size:.98rem;max-width:36em;}
+
+  /* Projects */
+  .projects{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;}
+  .project{padding:26px 0;border-top:1px solid var(--rule);}
+  .project h3{font-size:1.15rem;color:var(--teal-ink);margin-bottom:6px;}
+  .project .tag{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.78rem;color:var(--gold);margin-bottom:6px;}
+  .project p{font-size:.97rem;color:var(--ink-soft);max-width:34em;}
+
+  /* Services */
+  .services{list-style:none;max-width:720px;}
+  .services li{
+    display:grid;grid-template-columns:190px 1fr;gap:24px;
+    padding:22px 0;border-top:1px solid var(--rule);
+  }
+  .services li:first-child{border-top:none;}
+  .services h3{font-size:1.05rem;color:var(--teal-ink);}
+  .services p{color:var(--ink-soft);font-size:.97rem;}
+
+  /* Story — the one bold band */
+  section#story{
+    background:var(--teal-deep);color:#F3EFE6;border-bottom:none;
+    padding:88px 0;
+  }
+  #story h2{color:#fff;}
+  #story .h2-rule{background:var(--gold);}
+  #story p{max-width:38em;margin-bottom:18px;font-size:1.08rem;color:#EDEAE0;}
+  #story p.callout{
+    font-size:1.45rem;line-height:1.4;font-style:italic;color:#fff;
+    border-left:3px solid var(--gold);padding-left:22px;margin:30px 0;
+  }
+
+  /* Shows & events */
+  .events{list-style:none;max-width:720px;}
+  .events li{
+    display:flex;justify-content:space-between;gap:24px;align-items:baseline;
+    padding:20px 0;border-top:1px solid var(--rule);
+  }
+  .events li:first-child{border-top:none;}
+  .events h3{font-size:1.08rem;color:var(--teal-ink);font-weight:700;}
+  .events .role{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.85rem;color:var(--gold);white-space:nowrap;}
+  .events p{font-size:.95rem;color:var(--ink-soft);margin-top:4px;max-width:34em;}
+
+  /* Sub-heads & dropdowns */
+  .sub-head{
+    font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.82rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold);margin:0 0 16px;font-weight:600;
+  }
+  .offer-list{max-width:720px;margin-bottom:48px;}
+  .drop{border-top:1px solid var(--rule);}
+  .drop:last-child{border-bottom:1px solid var(--rule);}
+  .drop summary{
+    display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+    padding:20px 0;cursor:pointer;list-style:none;
+  }
+  .drop summary::-webkit-details-marker{display:none;}
+  .drop summary::after{content:'+';color:var(--gold);font-size:1.4rem;line-height:1;}
+  .drop[open] summary::after{content:'\2013';}
+  .drop-name{font-size:1.1rem;color:var(--teal-ink);font-weight:700;}
+  .drop-name em{font-style:italic;font-weight:400;color:var(--ink-soft);font-size:.98rem;}
+  .drop-meta{
+    font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.82rem;color:var(--gold);white-space:nowrap;
+  }
+  .drop-body{padding:0 0 26px;max-width:36em;}
+  .drop-body p{color:var(--ink-soft);font-size:.98rem;margin-bottom:12px;}
+  .drop-body strong{color:var(--teal-ink);}
+  .drop-body .btn{margin-top:8px;}
+
+  /* Contact */
+  #contact .contact-box{
+    background:var(--paper-soft);border-top:3px solid var(--gold);
+    padding:36px 34px;max-width:640px;
+  }
+  #contact .big{font-size:1.35rem;color:var(--teal-ink);margin-bottom:14px;}
+  #contact p{color:var(--ink-soft);margin-bottom:14px;}
+  #contact .reach{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.95rem;line-height:1.9;margin-bottom:0;}
+
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .shot{margin:0;}
+  .shot img{display:block;width:100%;height:230px;object-fit:cover;border-radius:2px;}
+  .shot figcaption{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.8rem;color:var(--ink-soft);padding-top:8px;line-height:1.4;}
+  @media (max-width:760px){
+    .gallery{grid-template-columns:1fr 1fr;gap:14px;}
+    .shot img{height:160px;}
+  }
+
+  /* Shop */
+  .shop{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .offer{
+    border:1.5px solid var(--teal);padding:32px 30px;
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .offer.gold{border-color:var(--gold);}
+  .offer h3{font-size:1.3rem;color:var(--teal-ink);}
+  .offer .sub{font-style:italic;color:var(--gold);font-size:.98rem;}
+  .offer p{color:var(--ink-soft);font-size:.97rem;flex-grow:1;}
+  .offer .btn{align-self:flex-start;}
+
+  /* Footer */
+  footer{background:var(--paper-soft);padding:44px 0;border-top:1px solid var(--rule);}
+  footer .sig{color:var(--teal-ink);font-size:1rem;}
+  footer .small{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.8rem;color:var(--ink-soft);margin-top:10px;}
+
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr;}
+    .projects{grid-template-columns:1fr;}
+    .services li{grid-template-columns:1fr;gap:6px;}
+    .shop{grid-template-columns:1fr;}
+    .events li{flex-direction:column;gap:6px;}
+    .hero{padding:60px 0 52px;}
+    section{padding:56px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap navbar">
+    <div class="wordmark"><b>Foluke Arthurton</b></div>
+    <nav class="main sans">
+      <a href="#about">About Me</a>
+      <a href="#journey">Journey</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#story">My Story</a>
+      <a href="#shows">Shows</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#shop">Shop</a>
+      <a href="{{ '/checkin/' | relative_url }}">Weekly Check-In</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+    <h1>Care for the whole person.</h1>
+    <div class="line">Whole-Person Wellness · Community Health · Faith · Movement</div>
+    <p class="lede">I help people move, breathe, laugh, and heal — body, mind, and spirit. Through movement classes, retreats, honest conversation, and prayer, I create spaces where women and caregivers reconnect with themselves and with God.</p>
+    <div class="cta">
+      <a class="btn primary" href="#services">Join a class</a>
+      <a class="btn ghost" href="#story">Read my story</a>
+    </div>
+    </div>
+    <div class="hero-photo">
+      <img src="{{ "/assets/images/foluke-portrait.jpg" | relative_url }}" alt="Foluke Arthurton smiling, seated on a bench against a brick wall">
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About Me</h2>
+    <div class="h2-rule"></div>
+    <div class="about-grid">
+      <div>
+        <p class="vocation">My vocation is sharing Christ through art, fitness, and health education. My avocation is community outreach and honest humor.</p>
+        <p>I was born in Harlem, New York, and raised between the Bronx and the U.S. Virgin Islands. My passion for holistic wellness began early, inspired by my grandmother — a self-taught herbalist who modeled natural healing, faith, and service in everyday living.</p>
+        <p>I earned a Bachelor of Arts in Dance from the University of Maryland and enjoyed a career as a professional touring performer before moving into wellness education and ministry. That background in movement, theater, and storytelling still shapes how I teach, serve, and connect with people today.</p>
+        <p>Now I serve as a fitness coach with 1199SEIU Funds, specializing in Pilates, yoga, ballet conditioning, and strength and endurance training. I also provide wellness education through K2K Fit, serve as a Digital Chaplain with Adventist Connect, and am completing an internship with the Adventist Medical Evangelism Network. This ministry and outreach work has taken me to communities across North America, the Caribbean, and Latin America.</p>
+        <p>At Andrews University I'm pursuing Master of Social Work and Master of Divinity degrees, exploring how faith, public health, and community engagement work together to promote healing and human flourishing. Drawing on dance, theater, and comedy, I bring warmth, authenticity, and humor to every audience I serve.</p>
+        <p>My ministry is grounded in the belief that God cares about the health of our bodies, the peace of our minds, and the transformation of our hearts.</p>
+      </div>
+      <aside class="facts sans">
+        <h3>At a glance</h3>
+        <ul>
+          <li><span>MDiv + MSW dual degree</span>, Andrews University</li>
+          <li><span>BA in Dance</span>, University of Maryland</li>
+          <li><span>NASW-Michigan Student Ambassador</span> for Andrews University</li>
+          <li>Health and Fitness Coach for <span>1199SEIU Funds</span> healthcare workers</li>
+          <li>Digital chaplain, <span>Adventist Connect (AIM)</span></li>
+          <li>Voice over artist &amp; announcer, <span>WAUS 90.7 FM</span></li>
+          <li>Founder, <span>K2K Fit</span> &amp; <span>SHINE</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap">
+    <h2>Journey</h2>
+    <div class="h2-rule"></div>
+    <p class="section-note">From the fitness studio to the seminary classroom — every season taught me a new way to care for people.</p>
+    <ol class="timeline">
+      <li>
+        <h3>Movement roots — University of Maryland</h3>
+        <p>A bachelor's degree in dance, followed by a career as a professional touring performer. Before anything else, I learned to communicate, heal, and worship through the moving body — studying the integrative fusion of literacy and movement, and how art influences society.</p>
+      </li>
+      <li>
+        <h3>New York Sports Clubs — Fitness Manager &amp; Master Trainer</h3>
+        <p>Leading fitness operations with creative, strategic sales that surpassed income goals — while developing trainers and coaching clients. People came to move, but they stayed to talk. Annual community engagement events encouraged compassion and connection, and the studio became a community.</p>
+      </li>
+      <li>
+        <h3>1199SEIU — Health &amp; Wellness Educator</h3>
+        <p>Wellness education and movement programming for healthcare workers — Pilates, mobility, stress management, and practical self-care for the people who care for everyone else.</p>
+      </li>
+      <li>
+        <h3>Andrews University — seminary &amp; social work</h3>
+        <p>An MDiv and MSW pursued together, because I refuse to choose between caring for someone's spirit and caring for their circumstances. Along the way: WOW Wednesdays wellness for seminarians, and brand and project leadership for the Graduate Student Association.</p>
+      </li>
+      <li>
+        <h3>NASW-Michigan Student Ambassador</h3>
+        <p>Selected to represent Andrews University's social work program as the liaison to the National Association of Social Workers, Michigan Chapter — promoting member resources and advocacy efforts, connecting students with the profession statewide, and planning events for social work students each semester.</p>
+      </li>
+      <li>
+        <h3>Pastoral ministry — Berean SDA Church</h3>
+        <p>Creative Arts Ministry Pastor, then Community Engagement Pastor — Sabbath outreach in shelters and memory care communities, worship at housing complexes, and wellness partnerships that took ministry beyond the church walls.</p>
+      </li>
+      <li>
+        <h3>Digital chaplaincy — Adventist Connect (AIM)</h3>
+        <p>Pastoral care for people who reach out online in vulnerable moments — turning digital contacts into real relationships through prayer, Scripture, and compassionate listening.</p>
+      </li>
+      <li>
+        <h3>AMEN — Social Work Intern, Community Health &amp; Resource Navigation</h3>
+        <p>Serving free clinic guests with the Adventist Medical Evangelism Network — developing community and healthcare resource navigation sheets tailored to each clinic location, helping people navigate food, housing, transportation, and healthcare access, and assisting churches in exploring methods of maintaining and growing relationships after spiritual care follow-up, so a one-day clinic becomes a lasting connection.</p>
+      </li>
+      <li>
+        <h3>WAUS 90.7 FM — Voice Over Artist &amp; Radio Announcer</h3>
+        <p>On-air support and voice work for Andrews University's classical station, serving Berrien Springs and South Bend — announcements, program introductions, and Michiana Classics broadcast breaks, delivered with warmth, clarity, and connection to the listener.</p>
+      </li>
+      <li>
+        <h3>SHINE — what's being built now</h3>
+        <p>A wellness collective and community empowerment hub where movement meets meaning — restoring hope, rebuilding health, and renewing community.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <div class="h2-rule"></div>
+    <div class="projects">
+      <div class="project">
+        <div class="tag">Wellness collective</div>
+        <h3>SHINE</h3>
+        <p>A growing ecosystem: a membership wellness collective alongside a community wellness &amp; empowerment hub serving families, schools, and neighborhoods.</p>
+      </div>
+      <div class="project">
+        <div class="tag">Small group experience</div>
+        <h3>RECONNECT</h3>
+        <p>A six-week journey for women who've cared for everyone but themselves — movement, honest conversation, and simple rhythms of renewal.</p>
+      </div>
+      <div class="project">
+        <div class="tag">Community health</div>
+        <h3>AMEN Free Clinic outreach</h3>
+        <p>Resource workbooks, patient follow-up strategy, and church engagement that connect free clinic guests to lasting care and community.</p>
+      </div>
+      <div class="project">
+        <div class="tag">Workplace wellness</div>
+        <h3>Healthcare worker wellness classes</h3>
+        <p>Weekly virtual movement and reflection classes for 1199SEIU healthcare workers, with monthly themes and journaling that honor the people who care for us all. Created and choreographed the Funds' resistance band workout series — released on DVD and online across three fitness levels: <a href="https://www.1199seiubenefits.org/video/yoga-pilates-workout-beginner/">Yoga/Pilates (Beginner)</a>, <a href="https://www.1199seiubenefits.org/video/yoga-pilates-workout-intermediate/">Yoga/Pilates (Intermediate)</a>, <a href="https://www.1199seiubenefits.org/video/total-body-workout-beginner/">Total-Body (Beginner)</a>, and <a href="https://www.1199seiubenefits.org/video/total-body-workout-advanced/">Total-Body (Advanced)</a>. Watch corporate fitness sessions on YouTube: <a href="https://youtu.be/cDGQz0HVSIU">Session 1</a> and <a href="https://youtu.be/Q_wRPG2mnxo">Session 2</a>.</p>
+      </div>
+      <div class="project">
+        <div class="tag">Discipleship</div>
+        <h3>Rooted Circle</h3>
+        <p>An intergenerational women's discipleship series exploring how people grow — head, heart, and hand.</p>
+      </div>
+      <div class="project">
+        <div class="tag">Retreats</div>
+        <h3>Healing retreats</h3>
+        <p>Multi-day experiences including <em>Rooted, Restored, Reunited</em> and <em>Between Two Worlds</em>, designed for sisterhood, family healing, and diaspora communities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2>Services</h2>
+    <div class="h2-rule"></div>
+
+    <h3 class="sub-head">Classes &amp; Programs</h3>
+    <div class="offer-list">
+      <details class="drop">
+        <summary>
+          <span class="drop-name">Fitness Classes <em>— K2K Fit virtual movement</em></span>
+          <span class="drop-meta">MWF · 6:30 AM</span>
+        </summary>
+        <div class="drop-body">
+          <p>Live online Pilates and movement classes that meet you where you are. Move, breathe, and reset — from anywhere.</p>
+          <p><strong>Schedule:</strong> Monday, Wednesday, and Friday at 6:30 AM.</p>
+          <p><strong>Membership:</strong> unlimited classes, or a twice-a-week plan.</p>
+          <p><strong>Already in class?</strong> Use the <a href="{{ '/checkin/' | relative_url }}">Weekly Check-In</a> before and after each session.</p>
+          <a class="btn primary" href="#contact">Join a class</a>
+        </div>
+      </details>
+
+      <details class="drop">
+        <summary>
+          <span class="drop-name">RECONNECT <em>— time to return to your SHINE</em></span>
+          <span class="drop-meta">6 weeks · online</span>
+        </summary>
+        <div class="drop-body">
+          <p>A six-week online small group for women who've poured out for everyone else. Movement, honest conversation, weekly rhythms, and a community that helps you make room for joy again.</p>
+          <p><em>Caring for yourself is faithful stewardship.</em></p>
+          <a class="btn primary" href="#contact">Join the Founding Circle</a>
+        </div>
+      </details>
+    </div>
+
+    <h3 class="sub-head">Book Me</h3>
+    <ul class="services">
+      <li>
+        <h3>Speaking &amp; workshops</h3>
+        <p>Keynotes and interactive sessions on whole-person wellness, grief and caregiving, faith and health — with warmth, depth, and humor.</p>
+      </li>
+      <li>
+        <h3>Virtual &amp; in-person movement programming</h3>
+        <p>Ongoing Pilates, movement, and wellness series for organizations, unions, and member communities — delivering live online or on site. Builds team morale and improves productivity alongside wellbeing.</p>
+      </li>
+      <li>
+        <h3>Retreat design &amp; facilitation</h3>
+        <p>Custom retreats for women's ministries, families, and church communities — from theme and curriculum to the full weekend experience.</p>
+      </li>
+      <li>
+        <h3>Community engagement consulting</h3>
+        <p>Helping churches and clinics build follow-up and outreach systems that turn one-time events into lasting relationships. Using an asset-based, strengths-based approach to support member retention, spiritual and practical growth, community connection, and resource navigation.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap">
+    <h2>My Story</h2>
+    <div class="h2-rule"></div>
+    <p>I started out helping people get strong. In studios across New York, I taught them to breathe, to stabilize, to move with intention. But class after class, something else kept happening — people lingered. They wanted to talk. About their stress, their families, their faith, their grief.</p>
+    <p class="callout">People came to me to train their bodies. They stayed because their souls needed a safe place.</p>
+    <p>That's when I understood my calling wasn't fitness alone. It was the whole person. So I went back to school — for ministry and for social work at the same time — because I refuse to choose between caring for someone's spirit and caring for their circumstances.</p>
+    <p>Today I move between the clinic, the classroom, the sanctuary, and the screen. I teach, I pray, I make people laugh, and I sit with them in the hard conversations. Everything I build — every class, every retreat, every circle — exists so that someone who has been carrying too much can finally set it down and begin again.</p>
+  </div>
+</section>
+
+<section id="shows">
+  <div class="wrap">
+    <h2>Shows &amp; Events</h2>
+    <div class="h2-rule"></div>
+    <p class="section-note">Gatherings where I've had the honor to speak, lead, and serve.</p>
+    <ul class="events">
+      <li>
+        <div>
+          <h3>Kenyan Adventist Women's Summit</h3>
+          <p>Annual retreat of the Daughters of the King — Kenyan Adventist Women Fellowship, June 2026. Brought spiritual ministry and inspiring messages to a gathering of Adventist women celebrating faith, sisterhood, and whole-person health.</p>
+        </div>
+        <div class="role">Guest Presenter</div>
+      </li>
+      <li>
+        <div>
+          <h3>Zambian Adventist Women International (ZAWI) — 17th Annual Retreat</h3>
+          <p><em>"Changing Lives, One Sister at a Time"</em> — April 29–May 3, 2026, Sandy Cove Ministries, Maryland. Delivered the opening night spiritual message and led daily morning dance aerobics, connecting physical wellness, emotional resilience, and spiritual balance for women of every fitness level.</p>
+        </div>
+        <div class="role">Opening Night Speaker</div>
+      </li>
+      <li>
+        <div>
+          <h3>WOSE — Week of Spiritual Emphasis</h3>
+          <p>A campus week of intentional spiritual renewal at Andrews University — hosting interactive, multidisciplinary, spiritually transforming educational experiences with prayer at the center, surrounded by exercise and movement, preaching, worship, Scripture, reflection, and spiritual formation.</p>
+        </div>
+        <div class="role">Keynote Presenter</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2>Ministry in Motion</h2>
+    <div class="h2-rule"></div>
+    <p class="section-note">Glimpses from clinics, classrooms, sanctuaries, and sisterhood — whole-person care in real life.</p>
+    <div class="gallery">
+      <figure class="shot">
+        <img loading="lazy" src="{{ "/assets/images/fruits-of-the-spirit.jpg" | relative_url }}" alt="Teaching “Fruits of the Spirit” — wellness for the whole family">
+        <figcaption>Teaching “Fruits of the Spirit” — wellness for the whole family</figcaption>
+      </figure>
+      <figure class="shot">
+        <img loading="lazy" src="{{ "/assets/images/body-and-mind.jpg" | relative_url }}" alt="Body and mind together — movement built right into the message">
+        <figcaption>Body and mind together — movement built right into the message</figcaption>
+      </figure>
+      <figure class="shot">
+        <img loading="lazy" src="{{ "/assets/images/fruit-platter.jpg" | relative_url }}" alt="Hands-on health education — building the fruit platter together">
+        <figcaption>Hands-on health education — building the fruit platter together</figcaption>
+      </figure>
+      <figure class="shot">
+        <img loading="lazy" src="{{ "/assets/images/setting-the-space.jpg" | relative_url }}" alt="Setting the space — where worship and wellness meet">
+        <figcaption>Setting the space — where worship and wellness meet</figcaption>
+      </figure>
+      <figure class="shot">
+        <img loading="lazy" src="{{ "/assets/images/small-group.jpg" | relative_url }}" alt="Small group discovery on mission">
+        <figcaption>Small group discovery on mission</figcaption>
+      </figure>
+      <figure class="shot">
+        <img loading="lazy" src="{{ "/assets/images/clinic-outreach.jpg" | relative_url }}" alt="Community connection at clinic outreach">
+        <figcaption>Community connection at clinic outreach</figcaption>
+      </figure>
+      <figure class="shot">
+        <img loading="lazy" src="{{ "/assets/images/sisterhood.jpg" | relative_url }}" alt="Sisterhood — holding one another up">
+        <figcaption>Sisterhood — holding one another up</figcaption>
+      </figure>
+      <figure class="shot">
+        <img loading="lazy" src="{{ "/assets/images/daughters-of-the-king.jpg" | relative_url }}" alt="On stage — ministry with the Daughters of the King">
+        <figcaption>On stage — ministry with the Daughters of the King</figcaption>
+      </figure>
+      <figure class="shot">
+        <img loading="lazy" src="{{ "/assets/images/morning-movement.jpg" | relative_url }}" alt="After morning movement — sisters in wellness">
+        <figcaption>After morning movement — sisters in wellness</figcaption>
+      </figure>
+      <figure class="shot">
+        <img loading="lazy" src="{{ "/assets/images/backpack-challenge.jpg" | relative_url }}" alt="Annual Backpack Challenge — outreach for students and families living in unhoused conditions">
+        <figcaption>Annual Backpack Challenge — outreach for students and families living in unhoused conditions</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="wrap">
+    <h2>Shop</h2>
+    <div class="h2-rule"></div>
+    <p class="section-note">Guided resources you can work through on your own time.</p>
+    <div class="shop">
+      <div class="offer">
+        <h3>RECONNECT Workbook</h3>
+        <div class="sub">Companion to the six-week experience</div>
+        <p>Reflection prompts, weekly rhythms, and honest questions for women returning to themselves. Use it alongside the small group or on your own.</p>
+        <a class="btn primary" href="#contact">Get the workbook</a>
+      </div>
+      <div class="offer gold">
+        <h3>SHINE 7-Day Reset Journal</h3>
+        <div class="sub">One week to begin again</div>
+        <p>A short, guided reset for body, mind, and spirit — daily movement, Scripture, and space to write. Built for caregivers who need somewhere to set it all down.</p>
+        <a class="btn primary" href="#contact">Get the journal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Let's Talk</h2>
+    <div class="h2-rule"></div>
+    <div class="contact-box">
+      <p class="big">Book a free 30-minute consultation.</p>
+      <p>Whether you're planning a retreat, looking for ongoing wellness programming for your team, or wondering whether RECONNECT is right for you — let's find a time to talk it through.</p>
+      <p class="reach"><strong>Email:</strong> <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="sig">Foluke Arthurton — Social Work · Whole-Person Wellness</div>
+    <div class="small">© {{ site.time | date: "%Y" }} Foluke Arthurton. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

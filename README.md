@@ -1,8 +1,15 @@
-# Whole Person Check-In
+# Foluke Arthurton
 
-A weekly whole-person wellness check-in for Foluke Arthurton's fitness class, built with Jekyll and published on GitHub Pages.
+Foluke Arthurton's website, built with Jekyll and published on GitHub Pages. It has two parts:
 
-## Add a new week
+- **Home page** (`index.html`): about, journey timeline, projects, services, story, shows and events, gallery, shop, and contact. Photos are in `assets/images/`.
+- **Whole Person Check-In** (`/checkin/`): the weekly wellness check-in for the fitness class.
+
+## Edit the home page
+
+Open `index.html` and change the text. To add a show or event, copy one `<li>` block inside `<ul class="events">`. To add a journey step, copy one `<li>` inside `<ol class="timeline">`. The contact email comes from `contact_email` in `_config.yml`.
+
+## Add a new check-in week
 
 Copy `_weeks/2.md` to `_weeks/3.md` and change the text. Each week holds:
 
@@ -12,7 +19,7 @@ Copy `_weeks/2.md` to `_weeks/3.md` and change the text. Each week holds:
 - `ratings`: the 1 to 5 areas (keep the same `key` across weeks so My Journey can compare them)
 - `movement`, `post_prompts`, `faith_prompt` (optional), `challenge`, `closing`, `disclaimer`
 
-Save the file and the week shows up on the home page automatically.
+Save the file and the week shows up on the check-in page automatically.
 
 ## Preview on your computer
 
