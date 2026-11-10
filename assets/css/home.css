@@ -1,15 +1,16 @@
 :root{
-    /* Sunrise palette: change these to recolor the whole home page */
-    --teal:#14524D;        /* buttons, links */
-    --teal-deep:#0F3D3A;   /* story band, button hover */
-    --teal-ink:#0F3D3A;    /* headings */
-    --accent:#B04E2F;      /* terracotta: small labels and tags */
-    --gold:#E3A82B;        /* sunrise gold: rules, dots, borders */
-    --paper:#FBF5EC;       /* page background */
-    --paper-soft:#F3E7D6;  /* boxes and footer */
-    --ink:#22302D;         /* body text */
-    --ink-soft:#56615D;    /* secondary text */
-    --rule:#E6D8C4;        /* thin lines */
+    /* "Brick & Denim" palette, taken from Foluke's headshot. Change these to recolor the home page. */
+    --teal:#2F527D;        /* denim blue (shirt): buttons, links */
+    --teal-deep:#1C3150;   /* deep indigo denim: story band, button hover */
+    --teal-ink:#1C3150;    /* headings */
+    --accent:#A9442B;      /* brick red (wall): small labels, quiz button */
+    --gold:#9C88CF;        /* lavender (skirt): rules, dots, borders */
+    --gold-light:#C3B6EA;  /* light lavender: button on the dark band */
+    --paper:#FBF6EF;       /* mortar cream: page background */
+    --paper-soft:#F3E6DA;  /* soft brick blush: boxes and footer */
+    --ink:#24262E;         /* near-black (braids): body text */
+    --ink-soft:#575C6B;    /* secondary text */
+    --rule:#E7D9CB;        /* thin lines */
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -134,12 +135,12 @@
 
   /* Story — the one bold band */
   section#story{
-    background:var(--teal-deep);color:#F3EFE6;border-bottom:none;
+    background:var(--teal-deep);color:#F1ECF7;border-bottom:none;
     padding:88px 0;
   }
   #story h2{color:#fff;}
   #story .h2-rule{background:var(--gold);}
-  #story p{max-width:38em;margin-bottom:18px;font-size:1.08rem;color:#EDEAE0;}
+  #story p{max-width:38em;margin-bottom:18px;font-size:1.08rem;color:#E9E5F3;}
   #story p.callout{
     font-size:1.45rem;line-height:1.4;font-style:italic;color:#fff;
     border-left:3px solid var(--gold);padding-left:22px;margin:30px 0;
@@ -241,10 +242,10 @@ h2{font-weight:800;}
 .social a:hover{background:var(--teal);color:#fff;border-color:var(--teal);text-decoration:none;}
 .social svg{width:18px;height:18px;display:block;}
 .btn.quiz-pill{background:var(--accent);color:#fff;padding:8px 16px;border-radius:999px;font-weight:600;font-size:.88rem;}
-.btn.quiz-pill:hover{background:#923E24;text-decoration:none;}
+.btn.quiz-pill:hover{background:#8A3621;text-decoration:none;}
 .menu-btn{font:inherit;font-size:.9rem;font-weight:600;color:var(--teal-ink);background:none;border:1.5px solid var(--teal-ink);border-radius:999px;padding:7px 16px;cursor:pointer;}
 .menu-btn[aria-expanded="true"]{background:var(--teal-ink);color:#fff;}
-.menu{border-top:1px solid var(--rule);background:var(--paper);box-shadow:0 18px 30px -18px rgba(15,61,58,.35);}
+.menu{border-top:1px solid var(--rule);background:var(--paper);box-shadow:0 18px 30px -18px rgba(28,49,80,.3);}
 .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 24px;padding:18px 24px 24px;}
 .menu-grid a{padding:10px 0;border-bottom:1px solid var(--rule);color:var(--ink);font-size:1rem;}
 .menu-grid a:hover{color:var(--accent);text-decoration:none;}
@@ -268,11 +269,11 @@ section#community{background:var(--paper-soft);}
 .community p{color:var(--ink-soft);font-size:.98rem;flex-grow:1;}
 .community .btn{align-self:flex-start;}
 .city-embed{width:100%;height:620px;border:0;margin-top:28px;background:#fff;}
-.quiz-band{margin-top:28px;background:var(--teal-deep);color:#F3EFE6;padding:30px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+.quiz-band{margin-top:28px;background:var(--teal-deep);color:#F1ECF7;padding:30px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
 .quiz-band h3{font-family:'Fraunces',Georgia,serif;font-size:1.4rem;color:#fff;}
-.quiz-band p{color:#E4E0D4;font-size:.98rem;}
-.btn.gold{background:var(--gold);color:#2A1E07;font-weight:600;}
-.btn.gold:hover{background:#F0BC4A;text-decoration:none;}
+.quiz-band p{color:#DCD6EC;font-size:.98rem;}
+.btn.gold{background:var(--gold-light);color:#1C3150;font-weight:600;}
+.btn.gold:hover{background:#D5CBF1;text-decoration:none;}
 @media (max-width:760px){ .community{grid-template-columns:1fr;} }
 
 /* ---------- SHINE Style Quiz ---------- */
@@ -297,7 +298,7 @@ section#community{background:var(--paper-soft);}
 .options{display:grid;gap:10px;}
 .option{display:flex;gap:14px;align-items:center;width:100%;text-align:left;font:inherit;font-size:1.05rem;color:var(--ink);background:var(--paper);border:1.5px solid var(--rule);border-radius:10px;padding:14px 16px;cursor:pointer;transition:border-color .12s,background .12s,transform .12s;}
 .option:hover{border-color:var(--accent);transform:translateX(3px);}
-.option[aria-checked="true"]{border-color:var(--accent);background:#FBE9E1;}
+.option[aria-checked="true"]{border-color:var(--accent);background:#F7E4DC;}
 .option .letter{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--accent);color:var(--accent);font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:.85rem;}
 .option[aria-checked="true"] .letter{background:var(--accent);color:#fff;}
 .q-nav{display:flex;justify-content:space-between;margin-top:22px;}
