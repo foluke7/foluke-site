@@ -1,8 +1,8 @@
 name: Deploy site to GitHub Pages
 
-# Manual only while the repository is private (free GitHub Pages needs a public repo).
-# To deploy on every push again, add back:  push: { branches: [main] }
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
