@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if page.title %}{{ page.title }} · {% endif %}Foluke Arthurton — Social Work · Whole-Person Wellness</title>
+<meta name="description" content="{{ page.description | default: 'Foluke Arthurton helps people move, breathe, laugh, and heal through movement classes, retreats, honest conversation, and prayer.' }}">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap navbar">
+    <a class="wordmark" href="{{ '/' | relative_url }}"><b>Foluke Arthurton</b></a>
+    <div class="nav-right">
+      {% include social-icons.html class="in-header" %}
+      <a class="btn quiz-pill sans" href="{{ '/quiz/' | relative_url }}">Take the quiz</a>
+      <button class="menu-btn sans" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+    </div>
+  </div>
+  <nav class="menu sans" id="site-menu" hidden>
+    <div class="wrap menu-grid">
+      {%- assign home = '/' | relative_url -%}
+      <a href="{{ home }}#about">About Me</a>
+      <a href="{{ home }}#journey">Journey</a>
+      <a href="{{ home }}#projects">Projects</a>
+      <a href="{{ home }}#services">Services</a>
+      <a href="{{ home }}#story">My Story</a>
+      <a href="{{ home }}#shows">Shows &amp; Events</a>
+      <a href="{{ home }}#gallery">Gallery</a>
+      <a href="{{ home }}#community">Community</a>
+      <a href="{{ home }}#shop">Shop</a>
+      <a href="{{ '/quiz/' | relative_url }}">SHINE Style Quiz</a>
+      <a href="{{ '/checkin/' | relative_url }}">Weekly Check-In</a>
+      <a href="{{ home }}#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+{{ content }}
+
+<footer>
+  <div class="wrap footer-row">
+    <div>
+      <div class="sig">Foluke Arthurton — Social Work · Whole-Person Wellness</div>
+      <div class="small">© {{ site.time | date: "%Y" }} Foluke Arthurton. All rights reserved.</div>
+    </div>
+    {% include social-icons.html %}
+  </div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.querySelector(".menu-btn"), menu = document.getElementById("site-menu");
+  function set(open) { menu.hidden = !open; btn.setAttribute("aria-expanded", open); btn.textContent = open ? "Close" : "Menu"; }
+  btn.addEventListener("click", function () { set(menu.hidden); });
+  menu.addEventListener("click", function (e) { if (e.target.closest("a")) set(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) { set(false); btn.focus(); } });
+})();
+</script>
+{% if page.script %}<script src="{{ page.script | relative_url }}"></script>{% endif %}
+</body>
+</html>

@@ -9,6 +9,13 @@ Foluke Arthurton's website, built with Jekyll and published on GitHub Pages. It 
 
 Open `index.html` and change the text. To add a show or event, copy one `<li>` block inside `<ul class="events">`. To add a journey step, copy one `<li>` inside `<ol class="timeline">`. The contact email comes from `contact_email` in `_config.yml`.
 
+## Colors, social links, quiz, and community forms
+
+- **Colors:** the home page palette is the `:root` block at the top of `assets/css/home.css`.
+- **Social icons:** the `social:` list in `_config.yml`. Remove a line to hide that icon.
+- **SHINE Style Quiz** (`/quiz/`): questions and results are at the top of `assets/js/quiz.js`. It runs in the visitor's browser and sends nothing anywhere.
+- **Community forms:** paste Google Form links into `community.join_form` and `community.city_form` in `_config.yml`. Until then, the buttons open an email.
+
 ## Add a new check-in week
 
 Copy `_weeks/2.md` to `_weeks/3.md` and change the text. Each week holds:

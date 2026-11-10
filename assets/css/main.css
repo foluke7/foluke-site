@@ -1,17 +1,17 @@
 :root {
-  --bg: #fbf8f1;
+  --bg: #fbf5ec;
   --surface: #ffffff;
   --text: #24221f;
   --muted: #66615a;
-  --green: #17694f;
+  --green: #14524d;
   --green-ink: #ffffff;
-  --green-soft: #eaf3ee;
+  --green-soft: #e6efec;
   --gold: #c8891a;
   --gold-soft: #faf2e0;
   --field: #f2f4f2;
-  --border: #e3ddd1;
-  --up: #17694f;
-  --down: #a5552d;
+  --border: #e6d8c4;
+  --up: #14524d;
+  --down: #b04e2f;
   --radius: 12px;
 }
 @media (prefers-color-scheme: dark) {

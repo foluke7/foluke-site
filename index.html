@@ -1,267 +1,7 @@
 ---
-layout: null
+layout: home
 permalink: /
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Foluke Arthurton — Social Work · Whole-Person Wellness</title>
-<meta name="description" content="Foluke Arthurton helps people move, breathe, laugh, and heal through movement classes, retreats, honest conversation, and prayer.">
-<link rel="icon" href="data:,">
-<style>
-  :root{
-    --teal:#0F6E56;
-    --teal-deep:#0A4A3A;
-    --teal-ink:#123B31;
-    --gold:#C8922A;
-    --paper:#FFFFFF;
-    --paper-soft:#F6F4EF;
-    --ink:#22302B;
-    --ink-soft:#5A6963;
-    --rule:#DCE2DE;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
-  body{
-    font-family: Georgia, 'Times New Roman', serif;
-    color:var(--ink);
-    background:var(--paper);
-    line-height:1.65;
-  }
-  .sans{font-family:'Segoe UI', Tahoma, Arial, sans-serif;}
-
-  a{color:var(--teal);text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  a:focus-visible, button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
-
-  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
-
-  /* ---------- Nav ---------- */
-  header.site{
-    position:sticky;top:0;z-index:20;
-    background:var(--paper);
-    border-bottom:1px solid var(--rule);
-  }
-  .navbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;}
-  .wordmark{font-size:1.05rem;color:var(--teal-ink);letter-spacing:.01em;}
-  .wordmark b{font-weight:700;}
-  nav.main{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:.86rem;}
-  nav.main a{color:var(--ink-soft);}
-  nav.main a:hover{color:var(--teal);text-decoration:none;border-bottom:2px solid var(--gold);}
-
-  /* ---------- Hero ---------- */
-  .hero{padding:88px 0 72px;border-bottom:1px solid var(--rule);}
-  .hero .wrap{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center;}
-  .hero-photo{position:relative;}
-  .hero-photo img{
-    display:block;width:100%;height:auto;
-    border-radius:2px;
-  }
-  .hero-photo::after{
-    content:'';position:absolute;top:16px;left:16px;right:-16px;bottom:-16px;
-    border:2px solid var(--gold);border-radius:2px;z-index:-1;
-  }
-  @media (max-width:760px){
-    .hero .wrap{grid-template-columns:1fr;gap:40px;}
-    .hero-photo{max-width:320px;}
-  }
-  .hero .kicker{font-size:1rem;color:var(--gold);font-style:italic;margin-bottom:14px;}
-  .hero h1{
-    font-size:clamp(2.4rem, 6vw, 3.9rem);
-    line-height:1.08;
-    color:var(--teal-ink);
-    font-weight:700;
-    max-width:15ch;
-  }
-  .hero .line{font-size:1.05rem;color:var(--ink-soft);margin-top:18px;}
-  .hero p.lede{
-    font-size:1.2rem;max-width:34em;margin-top:22px;color:var(--ink);
-  }
-  .hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;}
-  .btn{
-    display:inline-block;padding:12px 26px;border-radius:2px;
-    font-family:'Segoe UI', Tahoma, Arial, sans-serif;font-size:.95rem;
-  }
-  .btn.primary{background:var(--teal);color:#fff;}
-  .btn.primary:hover{background:var(--teal-deep);text-decoration:none;}
-  .btn.ghost{border:1.5px solid var(--teal);color:var(--teal);}
-  .btn.ghost:hover{background:var(--paper-soft);text-decoration:none;}
-
-  /* ---------- Sections ---------- */
-  section{padding:72px 0;border-bottom:1px solid var(--rule);}
-  section:last-of-type{border-bottom:none;}
-  h2{
-    font-size:1.9rem;color:var(--teal-ink);font-weight:700;margin-bottom:10px;
-  }
-  .h2-rule{width:56px;height:3px;background:var(--gold);margin:0 0 28px;}
-  .section-note{color:var(--ink-soft);max-width:36em;margin-bottom:34px;font-size:1.02rem;}
-
-  /* About */
-  .about-grid{display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:start;}
-  .about-grid p{margin-bottom:16px;max-width:38em;}
-  .about-grid p.vocation{
-    font-style:italic;font-size:1.15rem;color:var(--teal-ink);
-    border-left:3px solid var(--gold);padding-left:18px;margin-bottom:24px;
-  }
-  .facts{
-    background:var(--paper-soft);padding:26px 26px 18px;border-top:3px solid var(--teal);
-    font-size:.94rem;
-  }
-  .facts h3{font-size:.95rem;color:var(--teal-ink);margin-bottom:12px;}
-  .facts ul{list-style:none;}
-  .facts li{padding:7px 0;border-bottom:1px solid var(--rule);color:var(--ink-soft);}
-  .facts li:last-child{border-bottom:none;}
-  .facts li span{color:var(--ink);}
-
-  /* Journey timeline */
-  .timeline{list-style:none;position:relative;padding-left:34px;max-width:640px;}
-  .timeline::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--teal);opacity:.35;}
-  .timeline li{position:relative;padding-bottom:30px;}
-  .timeline li:last-child{padding-bottom:0;}
-  .timeline li::before{
-    content:'';position:absolute;left:-32px;top:7px;width:12px;height:12px;border-radius:50%;
-    background:var(--gold);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--teal);
-  }
-  .timeline h3{font-size:1.12rem;color:var(--teal-ink);margin-bottom:4px;}
-  .timeline h3 em{font-style:normal;font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.8rem;color:var(--gold);font-weight:400;white-space:nowrap;}
-  .timeline p{color:var(--ink-soft);font-size:.98rem;max-width:36em;}
-
-  /* Projects */
-  .projects{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;}
-  .project{padding:26px 0;border-top:1px solid var(--rule);}
-  .project h3{font-size:1.15rem;color:var(--teal-ink);margin-bottom:6px;}
-  .project .tag{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.78rem;color:var(--gold);margin-bottom:6px;}
-  .project p{font-size:.97rem;color:var(--ink-soft);max-width:34em;}
-
-  /* Services */
-  .services{list-style:none;max-width:720px;}
-  .services li{
-    display:grid;grid-template-columns:190px 1fr;gap:24px;
-    padding:22px 0;border-top:1px solid var(--rule);
-  }
-  .services li:first-child{border-top:none;}
-  .services h3{font-size:1.05rem;color:var(--teal-ink);}
-  .services p{color:var(--ink-soft);font-size:.97rem;}
-
-  /* Story — the one bold band */
-  section#story{
-    background:var(--teal-deep);color:#F3EFE6;border-bottom:none;
-    padding:88px 0;
-  }
-  #story h2{color:#fff;}
-  #story .h2-rule{background:var(--gold);}
-  #story p{max-width:38em;margin-bottom:18px;font-size:1.08rem;color:#EDEAE0;}
-  #story p.callout{
-    font-size:1.45rem;line-height:1.4;font-style:italic;color:#fff;
-    border-left:3px solid var(--gold);padding-left:22px;margin:30px 0;
-  }
-
-  /* Shows & events */
-  .events{list-style:none;max-width:720px;}
-  .events li{
-    display:flex;justify-content:space-between;gap:24px;align-items:baseline;
-    padding:20px 0;border-top:1px solid var(--rule);
-  }
-  .events li:first-child{border-top:none;}
-  .events h3{font-size:1.08rem;color:var(--teal-ink);font-weight:700;}
-  .events .role{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.85rem;color:var(--gold);white-space:nowrap;}
-  .events p{font-size:.95rem;color:var(--ink-soft);margin-top:4px;max-width:34em;}
-
-  /* Sub-heads & dropdowns */
-  .sub-head{
-    font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.82rem;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--gold);margin:0 0 16px;font-weight:600;
-  }
-  .offer-list{max-width:720px;margin-bottom:48px;}
-  .drop{border-top:1px solid var(--rule);}
-  .drop:last-child{border-bottom:1px solid var(--rule);}
-  .drop summary{
-    display:flex;justify-content:space-between;align-items:baseline;gap:16px;
-    padding:20px 0;cursor:pointer;list-style:none;
-  }
-  .drop summary::-webkit-details-marker{display:none;}
-  .drop summary::after{content:'+';color:var(--gold);font-size:1.4rem;line-height:1;}
-  .drop[open] summary::after{content:'\2013';}
-  .drop-name{font-size:1.1rem;color:var(--teal-ink);font-weight:700;}
-  .drop-name em{font-style:italic;font-weight:400;color:var(--ink-soft);font-size:.98rem;}
-  .drop-meta{
-    font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.82rem;color:var(--gold);white-space:nowrap;
-  }
-  .drop-body{padding:0 0 26px;max-width:36em;}
-  .drop-body p{color:var(--ink-soft);font-size:.98rem;margin-bottom:12px;}
-  .drop-body strong{color:var(--teal-ink);}
-  .drop-body .btn{margin-top:8px;}
-
-  /* Contact */
-  #contact .contact-box{
-    background:var(--paper-soft);border-top:3px solid var(--gold);
-    padding:36px 34px;max-width:640px;
-  }
-  #contact .big{font-size:1.35rem;color:var(--teal-ink);margin-bottom:14px;}
-  #contact p{color:var(--ink-soft);margin-bottom:14px;}
-  #contact .reach{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.95rem;line-height:1.9;margin-bottom:0;}
-
-  /* Gallery */
-  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .shot{margin:0;}
-  .shot img{display:block;width:100%;height:230px;object-fit:cover;border-radius:2px;}
-  .shot figcaption{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.8rem;color:var(--ink-soft);padding-top:8px;line-height:1.4;}
-  @media (max-width:760px){
-    .gallery{grid-template-columns:1fr 1fr;gap:14px;}
-    .shot img{height:160px;}
-  }
-
-  /* Shop */
-  .shop{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
-  .offer{
-    border:1.5px solid var(--teal);padding:32px 30px;
-    display:flex;flex-direction:column;gap:12px;
-  }
-  .offer.gold{border-color:var(--gold);}
-  .offer h3{font-size:1.3rem;color:var(--teal-ink);}
-  .offer .sub{font-style:italic;color:var(--gold);font-size:.98rem;}
-  .offer p{color:var(--ink-soft);font-size:.97rem;flex-grow:1;}
-  .offer .btn{align-self:flex-start;}
-
-  /* Footer */
-  footer{background:var(--paper-soft);padding:44px 0;border-top:1px solid var(--rule);}
-  footer .sig{color:var(--teal-ink);font-size:1rem;}
-  footer .small{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.8rem;color:var(--ink-soft);margin-top:10px;}
-
-  @media (max-width:760px){
-    .about-grid{grid-template-columns:1fr;}
-    .projects{grid-template-columns:1fr;}
-    .services li{grid-template-columns:1fr;gap:6px;}
-    .shop{grid-template-columns:1fr;}
-    .events li{flex-direction:column;gap:6px;}
-    .hero{padding:60px 0 52px;}
-    section{padding:56px 0;}
-  }
-</style>
-</head>
-<body>
-
-<header class="site">
-  <div class="wrap navbar">
-    <div class="wordmark"><b>Foluke Arthurton</b></div>
-    <nav class="main sans">
-      <a href="#about">About Me</a>
-      <a href="#journey">Journey</a>
-      <a href="#projects">Projects</a>
-      <a href="#services">Services</a>
-      <a href="#story">My Story</a>
-      <a href="#shows">Shows</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#shop">Shop</a>
-      <a href="{{ '/checkin/' | relative_url }}">Weekly Check-In</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
 <div class="hero">
   <div class="wrap">
     <div class="hero-text">
@@ -545,6 +285,45 @@ permalink: /
   </div>
 </section>
 
+<section id="community">
+  <div class="wrap">
+    <h2>Join the SHINE Community</h2>
+    <div class="h2-rule"></div>
+    <p class="section-note">Wellness is better together. Come move, laugh, pray, and grow with women and caregivers who get it.</p>
+    {%- assign mail = 'mailto:' | append: site.contact_email -%}
+    <div class="community">
+      <div class="card">
+        <h3>Be the first to know</h3>
+        <p>New classes, RECONNECT circles, retreats, and events, plus encouragement for body, mind, and spirit.</p>
+        {%- if site.community.join_form != "" %}
+        <a class="btn primary" href="{{ site.community.join_form }}" target="_blank" rel="noopener">Join the community</a>
+        {%- else %}
+        <a class="btn primary" href="{{ mail }}?subject={{ 'Add me to the SHINE community' | uri_escape }}">Join the community</a>
+        {%- endif %}
+      </div>
+      <div class="card terra">
+        <h3>What city should I come to next?</h3>
+        <p>Want a class, workshop, retreat, or show near you? Tell me your city, and I'll plan my next visits around where the most people are asking.</p>
+        {%- if site.community.city_form != "" %}
+        <a class="btn primary" href="#city-form">Tell me your city</a>
+        {%- else %}
+        <a class="btn primary" href="{{ mail }}?subject={{ 'Come to my city!' | uri_escape }}&amp;body={{ 'City and state (or country): ' | uri_escape }}">Tell me your city</a>
+        {%- endif %}
+      </div>
+    </div>
+    {%- if site.community.city_form != "" %}
+    <iframe class="city-embed" id="city-form" title="What city should Foluke come to next?" loading="lazy" src="{{ site.community.city_form }}{% if site.community.city_form contains '?' %}&amp;{% else %}?{% endif %}embedded=true"></iframe>
+    {%- endif %}
+    <div class="quiz-band">
+      <div>
+        <h3>What's your SHINE style?</h3>
+        <p>Take the 2-minute quiz and find the next step that fits you.</p>
+      </div>
+      <a class="btn gold" href="{{ '/quiz/' | relative_url }}">Take the quiz →</a>
+    </div>
+  </div>
+</section>
+
 <section id="shop">
   <div class="wrap">
     <h2>Shop</h2>
@@ -575,16 +354,10 @@ permalink: /
       <p class="big">Book a free 30-minute consultation.</p>
       <p>Whether you're planning a retreat, looking for ongoing wellness programming for your team, or wondering whether RECONNECT is right for you — let's find a time to talk it through.</p>
       <p class="reach"><strong>Email:</strong> <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
+      <div class="follow">
+        <p><strong>Follow along</strong></p>
+        {% include social-icons.html %}
+      </div>
     </div>
   </div>
 </section>
-
-<footer>
-  <div class="wrap">
-    <div class="sig">Foluke Arthurton — Social Work · Whole-Person Wellness</div>
-    <div class="small">© {{ site.time | date: "%Y" }} Foluke Arthurton. All rights reserved.</div>
-  </div>
-</footer>
-
-</body>
-</html>

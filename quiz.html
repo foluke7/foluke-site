@@ -1,0 +1,40 @@
+---
+layout: home
+title: What's Your SHINE Style?
+permalink: /quiz/
+description: A 2-minute quiz from Foluke Arthurton. Find your SHINE style and the next step for your whole-person wellness.
+script: /assets/js/quiz.js
+---
+<main class="quiz-page" id="quiz"
+  data-home="{{ '/' | relative_url }}"
+  data-checkin="{{ '/checkin/' | relative_url }}">
+  <div class="wrap">
+
+    <div class="quiz-intro" data-screen="intro">
+      <p class="quiz-eyebrow">8 questions · about 2 minutes</p>
+      <h1 class="quiz-title">What's your<br><span>SHINE</span> style?</h1>
+      <p class="quiz-tag">Find how you recharge, and the next step that fits you.</p>
+      <button class="btn primary" type="button" data-start>Take the quiz →</button>
+      <div class="quiz-types" aria-label="The four styles">
+        <span>🔥 The Mover</span><span>🌿 The Restorer</span><span>🤝 The Connector</span><span>✨ The Reflector</span>
+      </div>
+    </div>
+
+    <div data-screen="question" hidden>
+      <div class="q-meta"><span data-count></span><span>Pick one</span></div>
+      <div class="progress" data-progress aria-hidden="true"></div>
+      <div class="q-card">
+        <h2 id="q-text"></h2>
+        <div class="options" role="radiogroup" aria-labelledby="q-text" data-options></div>
+      </div>
+      <div class="q-nav">
+        <button class="q-back" type="button" data-back>← Back</button>
+        <button class="q-next" type="button" data-next disabled>Next →</button>
+      </div>
+    </div>
+
+    <div class="result" data-screen="result" hidden tabindex="-1"></div>
+
+    <noscript><p class="quiz-tag" style="text-align:center;margin-top:24px">The quiz needs JavaScript turned on in your browser.</p></noscript>
+  </div>
+</main>

@@ -33,3 +33,17 @@ exclude:
   - Gemfile.lock
   - vendor
   - README.md
+
+# Social media icons (shown in the header, contact section, and footer).
+# Remove a line to hide that icon.
+social:
+  - { name: Instagram, url: "https://www.instagram.com/k2kfit_/" }
+  - { name: Facebook,  url: "https://www.facebook.com/foluke.arthurton/" }
+  - { name: TikTok,    url: "https://www.tiktok.com/@k2kfit_" }
+  - { name: YouTube,   url: "https://www.youtube.com/@k2kfitchannel944" }
+
+# Community forms (Google Forms). Paste each form's normal link here.
+# Until they're set, the buttons open an email to you instead.
+community:
+  join_form: ""   # "Join the SHINE community" sign-up form
+  city_form: ""   # "What city should I come to next?" form
