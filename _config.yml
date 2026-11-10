@@ -1,0 +1,35 @@
+title: Whole Person Check-In
+series_name: November Wellness Series
+description: A weekly whole-person check-in to reflect honestly, notice change, and build healthy habits that fit everyday life.
+author: Foluke Arthurton
+credentials: Social Work · Whole-Person Wellness
+contact_email: hello.foluke@gmail.com
+series_weeks: 7          # total number of weeks in the series
+url: ""                  # set once the custom domain is ready
+baseurl: ""
+
+# "Share with my instructor" Google Form. Leave action_url blank to hide the button.
+# action_url looks like: https://docs.google.com/forms/d/e/XXXX/formResponse
+google_form:
+  action_url: ""
+  entry_name: ""         # e.g. entry.123456789
+  entry_week: ""
+  entry_answers: ""
+
+collections:
+  weeks:
+    output: true
+    permalink: /week/:name/
+
+defaults:
+  - scope: { type: weeks }
+    values: { layout: week }
+
+plugins:
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md

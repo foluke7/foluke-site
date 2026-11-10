@@ -1,0 +1,10 @@
+{%- comment -%} params: id, label, range, compare (optional) {%- endcomment -%}
+<div class="rating-row">
+  <div class="rating-label"><strong>{{ include.label }}</strong>{% if include.range %}<span>{{ include.range }}</span>{% endif %}</div>
+  <div class="rating" role="radiogroup" aria-label="{{ include.label }}{% if include.range %}: {{ include.range }}{% endif %}"
+       data-rating="{{ include.id }}" data-label="{{ include.summary_label | default: include.label }}"{% if include.compare %} data-compare="{{ include.compare }}"{% endif %}>
+    {%- for n in (1..5) %}
+    <button type="button" role="radio" aria-checked="false" value="{{ n }}">{{ n }}</button>
+    {%- endfor %}
+  </div>
+</div>

@@ -1,0 +1,43 @@
+---
+layout: default
+title: My Journey
+permalink: /journey/
+---
+{%- assign weeks = site.weeks | sort: "week" -%}
+<header class="checkin-head">
+  <p class="eyebrow">{{ site.series_name }}</p>
+  <h1>My Journey</h1>
+  <p class="subtitle">Look back on where you started and notice how far you've come.</p>
+</header>
+
+<section>
+  <div class="band"><h2>How I felt after class, week by week</h2></div>
+  <p class="hint">Your after-class ratings (1 to 5). Blank means you haven't rated that week yet.</p>
+  <div class="table-wrap"><table class="journey-table" id="journey-ratings"></table></div>
+</section>
+
+<section>
+  <div class="band"><h2>My habits and reflections</h2></div>
+  <div id="journey-weeks"></div>
+</section>
+
+<section>
+  <div class="band"><h2>Start to finish</h2></div>
+  <p class="hint">Fill these in during your final week.</p>
+  <label for="journey-proud">What am I most proud of from this series?</label>
+  <textarea id="journey-proud" rows="3" data-save="journey.proud" data-label="Most proud of"></textarea>
+  <label for="journey-keep">Which habit do I want to keep going after the series ends?</label>
+  <textarea id="journey-keep" rows="2" data-save="journey.keep" data-label="Habit to keep"></textarea>
+  <label for="journey-next">What is my next small step for my whole-person wellness?</label>
+  <textarea id="journey-next" rows="2" data-save="journey.next" data-label="Next small step"></textarea>
+  <div class="actions"><button type="button" class="btn secondary" data-action="print">Print my journey</button></div>
+  <p class="save-status" role="status" aria-live="polite"></p>
+</section>
+
+<script type="application/json" id="series-data">
+[{%- for doc in weeks -%}
+  {"week": {{ doc.week }}, "title": {{ doc.title | jsonify }}, "url": {{ doc.url | relative_url | jsonify }},
+   "habit": {{ doc.challenge.tracker_label | jsonify }},
+   "ratings": {{ doc.ratings | jsonify }}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}]
+</script>

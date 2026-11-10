@@ -1,0 +1,174 @@
+---
+layout: default
+---
+{%- assign w = "w" | append: page.week -%}
+<article class="checkin" data-week="{{ page.week }}" data-start-date="{{ page.date | date: '%Y-%m-%d' }}">
+
+  <header class="checkin-head">
+    <p class="eyebrow">{{ site.series_name }} · {{ page.date | date: "%A, %B %-d, %Y" }} · Week {{ page.week }} of {{ site.series_weeks }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="subtitle">{{ page.subtitle }}</p>
+  </header>
+
+  <nav class="step-nav" aria-label="Sections">
+    <a href="#before">Before class</a>
+    <a href="#after">After class</a>
+    <a href="#my-week">My week</a>
+    <a href="#my-change">My change</a>
+  </nav>
+
+  <!-- BEFORE CLASS -->
+  <section id="before">
+    <div class="band"><h2>Before class</h2><span>Tap and type your answers. They save on this device as you go.</span></div>
+
+    {% if page.nugget %}
+    <aside class="nugget">
+      <h3>{{ page.nugget.title }}</h3>
+      <p>{{ page.nugget.body }}</p>
+    </aside>
+    {% endif %}
+
+    <h3 class="sub">Pre-class connection: body, mind, emotions</h3>
+    <p class="hint">Private reflection. Your answers stay on your device. Sharing in class is optional.</p>
+    {% for p in page.pre_prompts %}
+    <label for="{{ w }}-pre-{{ forloop.index }}"><span class="area">{{ p.area }}:</span> {{ p.q }}</label>
+    <textarea id="{{ w }}-pre-{{ forloop.index }}" rows="2" data-save="{{ w }}.pre.{{ forloop.index }}" data-label="{{ p.area }}: {{ p.q }}"></textarea>
+    {% endfor %}
+
+    <h3 class="sub">Whole person check in: before</h3>
+    <p class="hint">Tap a number. 1 is running on empty, 5 is steady and supported. You'll rate again after class.</p>
+    <div class="ratings">
+      {% for r in page.ratings %}
+        {% capture rid %}{{ w }}.before.{{ r.key }}{% endcapture %}
+        {% capture sl %}Before class: {{ r.label }}{% endcapture %}
+        {% include rating.html id=rid label=r.label range=r.range summary_label=sl %}
+      {% endfor %}
+    </div>
+
+    <p class="movement"><strong>Tonight's movement:</strong> {{ page.movement }}</p>
+  </section>
+
+  <!-- AFTER CLASS -->
+  <section id="after">
+    <div class="band"><h2>After class</h2><span>Rate yourself again. Your before answer shows in gold.</span></div>
+
+    <h3 class="sub">Whole person check in: after</h3>
+    <div class="ratings">
+      {% for r in page.ratings %}
+        {% capture rid %}{{ w }}.after.{{ r.key }}{% endcapture %}
+        {% capture cid %}{{ w }}.before.{{ r.key }}{% endcapture %}
+        {% capture sl %}After class: {{ r.label }}{% endcapture %}
+        {% include rating.html id=rid label=r.label range=r.range compare=cid summary_label=sl %}
+      {% endfor %}
+    </div>
+
+    <div class="ratings single">
+      {% capture rid %}{{ w }}.welcomed{% endcapture %}
+      {% include rating.html id=rid label="Did tonight's class help you feel welcomed and included?" range="1 = Not at all, 5 = Very much" summary_label="Felt welcomed and included" %}
+    </div>
+
+    <h3 class="sub">Post-class reflection</h3>
+    {% for q in page.post_prompts %}
+    <label for="{{ w }}-post-{{ forloop.index }}">{{ forloop.index }}. {{ q }}</label>
+    <textarea id="{{ w }}-post-{{ forloop.index }}" rows="2" data-save="{{ w }}.post.{{ forloop.index }}" data-label="{{ q }}"></textarea>
+    {% endfor %}
+
+    {% if page.faith_prompt %}
+    <details class="faith" data-remember="{{ w }}.faith-open">
+      <summary>Optional faith reflection</summary>
+      <label for="{{ w }}-faith">{{ page.faith_prompt }}</label>
+      <textarea id="{{ w }}-faith" rows="3" data-save="{{ w }}.faith" data-label="Faith reflection"></textarea>
+    </details>
+    {% endif %}
+
+    <div class="challenge">
+      <h3>This week's challenge</h3>
+      <p>{{ page.challenge.text }}</p>
+      <label for="{{ w }}-challenge">{{ page.challenge.prompt }}</label>
+      <input type="text" id="{{ w }}-challenge" data-save="{{ w }}.challenge" data-label="{{ page.challenge.prompt }}">
+    </div>
+  </section>
+
+  <!-- MY WEEK -->
+  <section id="my-week">
+    <div class="band"><h2>My week</h2><span>Come back during the week. Every small step counts.</span></div>
+
+    <h3 class="sub">Habit tracker</h3>
+    <p class="hint">Tap each day you {{ page.challenge.tracker_label | downcase }}. Missed days are part of the process, not a failure.</p>
+    <div class="tracker" data-tracker="{{ w }}.track" data-label="{{ page.challenge.tracker_label }}">
+      {% for d in (1..7) %}
+      <label class="day"><input type="checkbox" data-save="{{ w }}.track.{{ d }}"><span class="day-name" data-day-offset="{{ d }}">Day {{ d }}</span><span class="tick" aria-hidden="true"></span></label>
+      {% endfor %}
+    </div>
+    <p class="tracker-count" data-tracker-count="{{ w }}.track"></p>
+
+    <h3 class="sub">Looking back on this week</h3>
+    <label for="{{ w }}-win">A win I want to celebrate, big or small:</label>
+    <textarea id="{{ w }}-win" rows="2" data-save="{{ w }}.win" data-label="A win to celebrate"></textarea>
+
+    <label for="{{ w }}-hard">Something that was hard this week (it's okay to name it):</label>
+    <textarea id="{{ w }}-hard" rows="2" data-save="{{ w }}.hard" data-label="Something that was hard"></textarea>
+
+    <label for="{{ w }}-life">How did home, family, or work shape my wellness this week?</label>
+    <textarea id="{{ w }}-life" rows="2" data-save="{{ w }}.life" data-label="Home, family, or work"></textarea>
+  </section>
+
+  <!-- MY CHANGE -->
+  <section id="my-change">
+    <div class="band"><h2>My change</h2><span>Fills in by itself as you answer.</span></div>
+
+    <div class="table-wrap">
+    <table class="change-table">
+      <thead><tr><th>Area</th><th>Before</th><th>After</th><th>My change</th></tr></thead>
+      <tbody>
+        {% for r in page.ratings %}
+        <tr data-change-row data-before="{{ w }}.before.{{ r.key }}" data-after="{{ w }}.after.{{ r.key }}">
+          <th scope="row">{{ r.label }}</th><td class="b">–</td><td class="a">–</td><td class="d">–</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+
+    <h3 class="sub">My check-in answers</h3>
+    <p class="hint">Everything you wrote, in one place. Copy it into a text, email, or notes.</p>
+    <textarea class="summary" readonly rows="10" aria-label="My check-in answers"></textarea>
+
+    <div class="actions">
+      <button type="button" class="btn" data-action="copy">Copy my answers</button>
+      <button type="button" class="btn secondary" data-action="print">Print or save as PDF</button>
+      <a class="btn secondary" data-action="email" href="mailto:{{ site.contact_email }}">Email to Foluke</a>
+    </div>
+    <p class="save-status" role="status" aria-live="polite"></p>
+
+    {% if site.google_form.action_url != "" %}
+    <div class="share card">
+      <h3>Share with my instructor</h3>
+      <p class="hint">Optional. Only sent when you press the button. Foluke will see what you wrote for this week.</p>
+      <label for="{{ w }}-name">Your name (optional)</label>
+      <input type="text" id="{{ w }}-name" data-save="profile.name" autocomplete="name">
+      <button type="button" class="btn" data-action="share"
+        data-form="{{ site.google_form.action_url }}"
+        data-entry-name="{{ site.google_form.entry_name }}"
+        data-entry-week="{{ site.google_form.entry_week }}"
+        data-entry-answers="{{ site.google_form.entry_answers }}"
+        data-week-title="Week {{ page.week }}: {{ page.title }}">Send to Foluke</button>
+    </div>
+    {% endif %}
+
+    <div class="closing">
+      <h2>{{ page.closing.title }}</h2>
+      <p>{{ page.closing.body }}</p>
+    </div>
+  </section>
+
+  <nav class="week-pager">
+    {% assign prev = page.week | minus: 1 %}{% assign next = page.week | plus: 1 %}
+    {% assign prev_doc = site.weeks | where: "week", prev | first %}{% assign next_doc = site.weeks | where: "week", next | first %}
+    {% if prev_doc %}<a href="{{ prev_doc.url | relative_url }}">← Week {{ prev }}</a>{% else %}<span></span>{% endif %}
+    <a href="{{ '/journey/' | relative_url }}">My journey</a>
+    {% if next_doc %}<a href="{{ next_doc.url | relative_url }}">Week {{ next }} →</a>{% else %}<span></span>{% endif %}
+  </nav>
+
+  <p class="disclaimer">Participant journal. Educational wellness support only, not medical advice. {{ page.disclaimer }}</p>
+</article>
